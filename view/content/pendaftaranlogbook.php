@@ -5,6 +5,16 @@ $sql = mysqli_query($con, $q);
 $q_logbook = "SELECT id_logbook,no_urut,nama,jk_umur,jenis_spesimen,sampel_ke,diagnosa_followup,asal_faskes,pengirim,id_lab,tgl_ambil_sampel,tgl_terima_sampel,tgl_keluar_hasil,hasil_pcr,nik,ct_value,keterangan FROM logbook";
 $sql_logbook = mysqli_query($con, $q_logbook);
 ?>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/datatables.min.css"/>
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
+  <!-- <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
+  <!-- <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>   -->
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" /> -->
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+
 <div class="container-fluid">
 
     <!-- Exportable Table -->
@@ -163,6 +173,10 @@ $sql_logbook = mysqli_query($con, $q_logbook);
         </div>
     </div>
 </div>
+<!-- Export DataTable Excel -->
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> -->
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/datatables.min.js"></script>
 <!-- Jquery DataTable Plugin Js -->
 <script src="assets/bundles/datatablescripts.bundle.js"></script>
 <script src="assets/plugins/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
