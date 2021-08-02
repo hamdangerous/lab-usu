@@ -6,14 +6,14 @@ $q_logbook = "SELECT id_logbook,no_urut,nama,jk_umur,jenis_spesimen,sampel_ke,di
 $sql_logbook = mysqli_query($con, $q_logbook);
 ?>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/datatables.min.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.25/b-1.7.1/b-html5-1.7.1/datatables.min.css"/> -->
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
-  <!-- <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script> -->
-  <!-- <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>   -->
-  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" /> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
 
 <div class="container-fluid">
 
@@ -30,6 +30,14 @@ $sql_logbook = mysqli_query($con, $q_logbook);
                         </li>
                     </ul>
                 </div>
+                <form id="upload_csv" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Import File</label>
+                        <input type="file" name="csv_file" id="csv_file" accept=".csv">
+                    </div>
+                        <input type="submit" name="upload" id="upload" value="Upload" class="btn btn-info" />
+                    <div style="clear:both"></div>
+                </form>
                 <div class="body">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
@@ -173,6 +181,51 @@ $sql_logbook = mysqli_query($con, $q_logbook);
         </div>
     </div>
 </div>
+<!-- Import -->
+<script>
+
+$(document).ready(function(){
+ $('#upload_csv').on('submit', function(event){
+  event.preventDefault();
+  $.ajax({
+   url:"modul/import.php",
+   method:"POST",
+   data:new FormData(this),
+   dataType:'json',
+   contentType:false,
+   cache:false,
+   processData:false,
+   success:function(jsonData)
+   {
+    $('#csv_file').val('');
+    $('#data-table').DataTable({
+     data  :  jsonData,
+     columns :  [
+        { data : "id_logbook"  },
+        { data : "no_urut"  },
+        { data : "nama"  },
+        { data : "jk_umur"  },
+        { data : "jenis_spesimen"  },
+        { data : "sampel_ke"  },
+        { data : "diagnosa_followup"  },
+        { data : "asal_faskes"  },
+        { data : "pengirim"  },
+        { data : "id_lab"  },
+        { data : "tgl_ambil_sampel"  },
+        { data : "tgl_terima_sampel"  },
+        { data : "tgl_keluar_hasil"  },
+        { data : "hasil_pcr"  },
+        { data : "nik"  },
+        { data : "ct_value"  },
+        { data : "keterangan"  }
+     ]
+    });
+   }
+  });
+ });
+});
+
+</script>
 <!-- Export DataTable Excel -->
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script> -->
