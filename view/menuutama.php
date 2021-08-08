@@ -30,14 +30,14 @@
                         Pasien</span></a>
                 <ul class="ml-menu">
                     <li><a href="?page=pendaftaran&form=pasien">Data Pasien</a></li>
-                    <li><a href="?page=pendaftaran&form=kelas">Data Faskes</a></li>
+                    <li><a href="?page=pendaftaran&form=faskes">Data Faskes</a></li>
                     <li><a href="?page=pendaftaran&form=wali">Data Ekstraksi</a></li>
                     <li><a href="?page=pendaftaran&form=spp">Data Preparasi</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Transaksi</span></a>
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Master Data</span></a>
                 <ul class="ml-menu">
-                    <li><a href="?page=pendaftaran&form=spp">SPP</a></li>
+                    <li><a href="?page=pendaftaran&form=spp">Data Internal</a></li>
                     <li><a href="?page=pendaftaran&form=transaksi">Logbook</a></li>
                 </ul>
             </li>
