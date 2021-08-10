@@ -71,6 +71,8 @@ keterangan
 { data : ct_value  },
 { data : keterangan  },
 
+, id_logbook:id_logbook
+no_urut:no_urut, nama:nama, jk_umur:jk_umur, jenis_spesimen:jenis_spesimen, sampel_ke:sampel_ke, diagnosa_followup:diagnosa_followup, asal_faskes:asal_faskes, pengirim:pengirim, id_lab:id_lab, tgl_ambil_sampel:tgl_ambil_sampel, tgl_terima_sampel:tgl_terima_sampel, tgl_keluar_hasil:tgl_keluar_hasil, hasil_pcr:hasil_pcr, nik:nik, ct_value:ct_value, keterangan:keterangan
 
 by request hamdan,
 menu test dikanan,
