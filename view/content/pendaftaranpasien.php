@@ -37,6 +37,7 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                     <th>No. Rekam Medis</th>
                                     <th>NIK</th>
                                     <th>Keterangan/Riwayat Kontak Erat</th>
+                                    <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -87,43 +88,55 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                         <div class="row clearfix">
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <div class="form-group">    
-                                                    <input type="hidden" name="id">
+                                                    <div class="form-group">                                                    
+                                                    <input type="hidden" name="id">                                                    
                                                     <input type="number" class="form-control" placeholder="Id Pasien" name="id_pasien" readonly />
-                                                </div>                                                  
+                                                </div>      
+                                                <label for="no">No. Urut</label>                                    
                                                     <input type="number" class="form-control" placeholder="No. Urut" name="no" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="nama">Nama Pasien</label>
                                                     <input type="text" class="form-control" placeholder="Nama" name="nama" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="umur">Jenis Kelamin/Umur</label>
                                                     <input type="text" class="form-control" placeholder="Jenis Kelamin/Umur" name="umur" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="spesimen">Jenis Spesimen</label>
                                                     <input type="text" class="form-control" placeholder="Jenis Spesimen" name="spesimen" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="int" class="form-control" placeholder="Sampel Ke" name="sampel" required />
+                                                <label for="sampel">Sampel Ke</label>
+                                                    <input type="number" class="form-control" placeholder="Sampel Ke" name="sampel" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="diagnosa">Diagnosa</label>
                                                     <input type="text-area" class="form-control" placeholder="Diagnosa" name="diagnosa" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="profesi">Profesi</label>
                                                     <input type="text-area" class="form-control" placeholder="Profesi" name="profesi" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="tgl_ambil">Tgl Ambil Sampel</label>
                                                     <input type="date" class="form-control" placeholder="Tgl Ambil Sampel" name="tgl_ambil" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="tgl_kirim">Tgl Kirim Sampel</label>
                                                     <input type="date" class="form-control" placeholder="Tgl Kirim Sampel" name="tgl_kirim" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="rekam">No. Rekam Medis</label>
                                                     <input type="number" class="form-control" placeholder="No. Rekam Medis" name="rekam" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="nik">NIK</label>
                                                     <input type="number" class="form-control" placeholder="NIK" name="nik" required />
                                                 </div>
                                                 <div class="form-group">
+                                                <label for="ket">Ket./Riwatar Kontak Erat</label>
                                                     <textarea class="form-control" placeholder="Ket./Riwatar Kontak Erat" name="ket" required></textarea>
                                                 </div>
                                             </div>
