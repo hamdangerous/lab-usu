@@ -52,7 +52,7 @@ $(document).ready(function(){
  $('#upload_csv').on('submit', function(event){
   event.preventDefault();
   $.ajax({
-   url:"fetch.php",
+   url:"view/content/logbook/fetchlogbook.php",
    method:"POST",
    data:new FormData(this),
    dataType:'json',
@@ -171,7 +171,7 @@ $(document).ready(function(){
    keterangan.push($(this).text());
   });
   $.ajax({
-   url:"import.php",
+   url:"view/content/logbook/importlogbook.php",
    method:"POST",
    data:{no_urut:no_urut, nama:nama, jk_umur:jk_umur, jenis_spesimen:jenis_spesimen, sampel_ke:sampel_ke, diagnosa_followup:diagnosa_followup, asal_faskes:asal_faskes, pengirim:pengirim, id_lab:id_lab, tgl_ambil_sampel:tgl_ambil_sampel, tgl_terima_sampel:tgl_terima_sampel, tgl_keluar_hasil:tgl_keluar_hasil, hasil_pcr:hasil_pcr, nik:nik, ct_value:ct_value, keterangan:keterangan},
    success:function(data)

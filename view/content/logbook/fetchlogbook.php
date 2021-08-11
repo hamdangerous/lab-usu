@@ -1,7 +1,5 @@
 <?php
 
-//fetch.php
-
 if(!empty($_FILES['csv_file']['name']))
 {
  $file_data = fopen($_FILES['csv_file']['tmp_name'], 'r');

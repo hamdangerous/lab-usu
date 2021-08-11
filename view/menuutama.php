@@ -25,7 +25,7 @@
                 </div>
             </li>
 
-            <li><a href="index.php"><i class="zmdi zmdi-home"></i><span>Menu Utama</span></a></li>
+            <!-- <li><a href="index.php"><i class="zmdi zmdi-home"></i><span>Menu Utama</span></a></li> -->
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-accounts-list"></i><span>Data
                         Pasien</span></a>
                 <ul class="ml-menu">
@@ -37,8 +37,9 @@
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Master Data</span></a>
                 <ul class="ml-menu">
-                    <li><a href="?page=pendaftaran&form=logbook">Logbook</a></li>
-                    <li><a href="?page=pendaftaran&form=importlogbook">Import Logbook</a></li>
+                    <li><a href="./logbook"> Logbook</a></li>
+                    <li><a href="./importlogbook"> Import Logbook</a></li>
+                    <!-- <li><a href="?page=pendaftaran&form=importlogbook">Import Logbook</a></li> -->
                 </ul>
             </li>
             <!-- <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a>
@@ -71,6 +72,29 @@
         <?php
         $content = 'content/' . $content . '.php';
         include $content;
+
+        // Define your location project directory in htdocs (EX THE FULL PATH: D:\xampp\htdocs\lab-usu)
+            $project_location = "/lab-usu";
+            $me = $project_location;
+
+            // For get URL PATH
+            $request = $_SERVER['REQUEST_URI'];
+
+            switch ($request) {
+                case $me.'/logbook' :
+                    require "view/content/logbook/pendaftaranlogbook.php";
+                    break;
+                case $me.'/importlogbook' :
+                    require "view/content/logbook/pendaftaranimportlogbook.php";
+                    break;
+                case $me.'/contact' :
+                    require "views/contact.php";
+                    break;
+                // default:
+                //     http_response_code(404);
+                //     echo "404";
+                //     break;
+            }
         ?>
 
     </div>

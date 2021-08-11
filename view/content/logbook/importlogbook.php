@@ -1,7 +1,5 @@
 <?php
 
-//import.php
-
 if(isset($_POST["no_urut"]))
 {
  $connect = new PDO("mysql:host=localhost;dbname=lab-usu", "root", "");
