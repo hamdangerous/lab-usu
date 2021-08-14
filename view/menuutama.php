@@ -37,8 +37,8 @@
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Master Data</span></a>
                 <ul class="ml-menu">
-                    <li><a href="?page=pendaftaran&form=spp">Data Internal</a></li>
-                    <li><a href="?page=pendaftaran&form=transaksi">Logbook</a></li>
+                    <li><a href="pendaftaranimportlogbook.aspx">Data Internal</a></li>
+                    <li><a href="logbook.aspx">Logbook</a></li>
                 </ul>
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-accounts"></i><span>Data Faskes</span></a>
@@ -77,6 +77,26 @@
         <?php
         $content = 'content/' . $content . '.php';
         include $content;
+
+        // project path
+        $project_location = "/laragon/www/lab-usu";
+        $me = $project_location;
+
+        // get url path
+        $request = $_SERVER['REQUEST_URI'];
+
+        switch ($request) {
+            case $me. '/logbook.aspx':
+                require "view/content/logbook/indexlogbook.php";
+                break;
+            case $me. '/pendaftaranimportlogbook.aspx':
+                    require "view/content/logbook/pendaftaranimportlogbook.php";
+                    break;
+            
+            // default:
+            //     # code...
+            //     break;
+        }
         ?>
 
     </div>
