@@ -27,7 +27,7 @@
 
             <li><a href="index.php"><i class="zmdi zmdi-home"></i><span>Menu Utama</span></a></li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-accounts-list"></i><span>Data
-                        Pasien</span></a>
+                        Lab</span></a>
                 <ul class="ml-menu">
                     <li><a href="?page=pendaftaran&form=pasien">Data Pasien</a></li>
                     <li><a href="?page=pendaftaran&form=faskes">Data Faskes</a></li>
@@ -41,9 +41,15 @@
                     <li><a href="?page=pendaftaran&form=transaksi">Logbook</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a>
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-accounts"></i><span>Data Faskes</span></a>
                 <ul class="ml-menu">
-                    <li><a href="?page=pendaftaran&form=pegawai">Data Pegawai</a></li>
+                    <li><a href="?page=pendaftaran&form=faskes">Data Faskes</a></li>
+                    <li><a href="?page=pendaftaran&form=faskesupload">Data Faskes Upload</a></li>
+                </ul>
+            </li>
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+                <ul class="ml-menu">
+                    <li><a href="?page=pendaftaran&form=admin">Data Admin</a></li>
                 </ul>
             </li>
         </ul>
