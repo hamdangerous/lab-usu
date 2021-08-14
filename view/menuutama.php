@@ -37,8 +37,8 @@
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Master Data</span></a>
                 <ul class="ml-menu">
-                    <li><a href="?page=pendaftaran&form=spp">Data Internal</a></li>
-                    <li><a href="logbook.aspx">Logbook</a></li>
+                    <li><a href="logbook">Logbook</a></li>
+                    <li><a href="importlogbook">Import Logbook</a></li>
                 </ul>
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Pegawai</span></a>
@@ -80,13 +80,18 @@
         $request = $_SERVER['REQUEST_URI'];
 
         switch ($request) {
-            case $me. '/logbook.aspx':
-                require "view/content/logbook/indexlogbook.php";
+            case $me. '/logbook':
+                require "view/content/logbook/v_indexlogbook.php";
+                break;
+
+            case $me. '/importlogbook':
+                require "view/content/logbook/v_importlogbook.php";
                 break;
             
-            // default:
-            //     # code...
-            //     break;
+            default:
+                http_response_code(404);
+                echo "404";
+                break;
         }
         ?>
 
