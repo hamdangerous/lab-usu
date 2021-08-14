@@ -16,7 +16,7 @@ $sql_logbook = mysqli_query($con, $q_logbook);
                     <ul class="header-dropdown">
                         <li>
                             <button type="button" class="btn btn-primary waves-effect btn-sm" id="btn-tambah">Tambah
-                            Logbook</button>
+                            Logbookk</button>
                         </li>
                     </ul>
                 </div>
