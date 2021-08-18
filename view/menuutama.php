@@ -25,6 +25,12 @@
                 </div>
             </li>
 
+            <!-- Start Superadmin -->
+
+            <?php
+            if( $_SESSION['level'] == 0 ){
+            ?>
+
             <li><a href="index.php"><i class="zmdi zmdi-home"></i><span>Menu Utama</span></a></li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-accounts-list"></i><span>Data
                         Lab</span></a>
@@ -52,6 +58,87 @@
                     <li><a href="?page=pendaftaran&form=admin">Data Admin</a></li>
                 </ul>
             </li>
+
+            <?php
+            }
+            ?>
+
+            <!-- End Superadmin -->
+
+            <!-- Start Admin Logbook -->
+
+            <?php
+            if( $_SESSION['level'] == 1 ){
+            ?>
+
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Data Logbook</span></a>
+                <ul class="ml-menu">
+                    <li><a href="?page=pendaftaran&form=logbook">Logbook</a></li>
+                    <li><a href="?page=pendaftaran&form=logbookupload">Data Internal</a></li>
+                </ul>
+            </li>
+
+            <?php
+            }
+            ?>
+
+            <!-- End Admin Logbook -->
+
+            <!-- Start Admin Logbook -->
+
+            <?php
+            if( $_SESSION['level'] == 2 ){
+            ?>
+
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Data Ekstraksi</span></a>
+                <ul class="ml-menu">
+                    <li><a href="?page=pendaftaran&form=wali">Data Ekstraksi</a></li>
+                </ul>
+            </li>
+
+            <?php
+            }
+            ?>
+
+            <!-- End Admin Logbook -->
+
+            <!-- Start Admin Logbook -->
+
+            <?php
+            if( $_SESSION['level'] == 3 ){
+            ?>
+
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Data Preparasi</span></a>
+                <ul class="ml-menu">
+                    <li><a href="?page=pendaftaran&form=spp">Data Preparasi</a></li>
+                </ul>
+            </li>
+
+            <?php
+            }
+            ?>
+
+            <!-- End Admin Logbook -->
+
+            <!-- Start Admin Logbook -->
+
+            <?php
+            if( $_SESSION['level'] == 4 ){
+            ?>
+
+            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Data Faskes</span></a>
+                <ul class="ml-menu">
+                    <li><a href="?page=pendaftaran&form=faskes">Data Faskes</a></li>
+                    <li><a href="?page=pendaftaran&form=faskesupload">Data Faskes Upload</a></li>
+                </ul>
+            </li>
+
+            <?php
+            }
+            ?>
+
+            <!-- End Admin Logbook -->
+
         </ul>
     </div>
 </aside>
