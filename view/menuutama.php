@@ -19,8 +19,9 @@
                 <div class="user-info">
                     <a class="image" href="javascript:void(0);"><i class="zmdi zmdi-account"></i></a>
                     <div class="detail">
-                        <h4><?= $_SESSION[username] ?></h4>
-                        <small><?= $_SESSION[nama] ?></small>
+                        <!-- <h4><?= $_SESSION[username] ?></h4>
+                        <small><?= $_SESSION[nama] ?></small> -->
+                        <h4>Halo <?= $_SESSION[nama] ?></h4>
                     </div>
                 </div>
             </li>
