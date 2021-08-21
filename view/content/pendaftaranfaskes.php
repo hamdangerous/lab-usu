@@ -4,6 +4,7 @@ $q = "select * from faskes";
 $sql = mysqli_query($con, $q);
 $q_faskes = "SELECT id_faskes,nama_faskes,informsai,file,tipe_file,ukuran,tgl_upload FROM faskes";
 $sql_faskes = mysqli_query($con, $q_faskes);
+if ($_SESSION[level] == 0 ) {
 ?>
 <div class="container-fluid">
 
@@ -80,6 +81,9 @@ $sql_faskes = mysqli_query($con, $q_faskes);
                            </td>
                         </tr>";
                      }
+                  }else{
+                     echo "bukan urusan kau";
+                  }
                      ?>
                      </tbody>
                   </table>

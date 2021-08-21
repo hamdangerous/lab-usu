@@ -2,7 +2,8 @@
 require_once 'config/koneksi.php';
 $q = "select * from logbook";
 $sql = mysqli_query($con, $q);
-$q_logbook = "SELECT id_logbook,no_urut,nama,jk_umur,jenis_spesimen,sampel_ke,diagnosa_followup,asal_faskes,pengirim,id_lab,tgl_ambil_sampel,tgl_terima_sampel,tgl_keluar_hasil,hasil_pcr,nik,ct_value,keterangan FROM logbook";
+// $q_logbook = "SELECT id_logbook,no_urut,nama,jk_umur,jenis_spesimen,sampel_ke,diagnosa_followup,asal_faskes,pengirim,id_lab,tgl_ambil_sampel,tgl_terima_sampel,tgl_keluar_hasil,hasil_pcr,nik,ct_value,keterangan FROM logbook";
+$q_logbook = "SELECT * FROM logbook";
 $sql_logbook = mysqli_query($con, $q_logbook);
 ?>
 
@@ -83,7 +84,7 @@ $sql_logbook = mysqli_query($con, $q_logbook);
     <div class="modal fade" id="modal-form" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="form-submit" data-modul="m_indexlogbook">
+                <form id="form-submit" data-modul="m_logbook">
                     <div class="modal-header">
                         <h4 class="title" id="defaultModalLabel"><?= $form ?></h4>
                     </div>
@@ -213,7 +214,7 @@ $sql_logbook = mysqli_query($con, $q_logbook);
             $.ajax({
                 url: "modul/" + src + ".php",
                 data: fdata,
-                method: "post",
+                method: "POST",
                 contentType: false,
                 processData: false,
                 success: (data) => {
@@ -238,10 +239,10 @@ $sql_logbook = mysqli_query($con, $q_logbook);
         modal.find('.modal-header').text('Edit Data Logbook')
         $.ajax({
             url: "modul/" + src + ".php",
-            method: "post",
+            method: "POST",
             dataType: "json",
             data: {
-                aksi: "get",
+                aksi: "GET",
                 id: id
             },
             success: (data) => {
@@ -289,7 +290,7 @@ $sql_logbook = mysqli_query($con, $q_logbook);
                 if (willDelete) {
                     $.ajax({
                         url: "modul/" + src + ".php",
-                        method: "post",
+                        method: "POST",
                         data: {
                             aksi: "delete",
                             id: id

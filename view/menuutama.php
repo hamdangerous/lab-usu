@@ -28,7 +28,7 @@
             <!-- Start Superadmin -->
 
             <?php
-            if( $_SESSION['level'] == 0 ){
+            if( $_SESSION[level] == 0 ){
             ?>
 
             <li><a href="index.php"><i class="zmdi zmdi-home"></i><span>Menu Utama</span></a></li>
@@ -43,8 +43,8 @@
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-assignment"></i><span>Master Data</span></a>
                 <ul class="ml-menu">
-                    <li><a href="pendaftaranimportlogbook.aspx">Data Internal</a></li>
-                    <li><a href="logbook.aspx">Logbook</a></li>
+                    <li><a href="?page=pendaftaran&form=logbook">Logbook</a></li>
+                    <li><a href="?page=pendaftaran&form=logbookupload">Logbook Upload</a></li>
                 </ul>
             </li>
             <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-accounts"></i><span>Data Faskes</span></a>
@@ -60,7 +60,9 @@
             </li>
 
             <?php
-            }
+            } else { ?>
+            <li><a href="index.php"><i class="zmdi zmdi-home"></i><span>Menu Utama</span></a></li>
+            <?php };
             ?>
 
             <!-- End Superadmin -->
@@ -165,26 +167,26 @@
         $content = 'content/' . $content . '.php';
         include $content;
 
-        // project path
-        $project_location = "/laragon/www/lab-usu";
-        $me = $project_location;
+        // // project path
+        // $project_location = "/laragon/www/lab-usu";
+        // $me = $project_location;
 
-        // get url path
-        $request = $_SERVER['REQUEST_URI'];
+        // // get url path
+        // $request = $_SERVER['REQUEST_URI'];
 
-        switch ($request) {
-            case $me. '/logbook.aspx':
-                require "view/content/logbook/indexlogbook.php";
-                break;
-            case $me. '/pendaftaranimportlogbook.aspx':
-                    require "view/content/logbook/pendaftaranimportlogbook.php";
-                    break;
+        // switch ($request) {
+        //     case $me. '/logbook.aspx':
+        //         require "view/content/logbook/indexlogbook.php";
+        //         break;
+        //     case $me. '/pendaftaranimportlogbook.aspx':
+        //             require "view/content/logbook/pendaftaranimportlogbook.php";
+        //             break;
             
-            // default:
-            //     # code...
-            //     break;
-        }
-        ?>
+        //     // default:
+        //     //     # code...
+        //     //     break;
+        // }
+        // ?>
 
     </div>
 </section>
