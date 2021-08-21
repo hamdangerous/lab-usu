@@ -35,7 +35,7 @@ if (!$g[page]) {
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>---Lab. USU--- <?= $title ?> </title>
+    <title>Lab. USU <?= $title ?> </title>
     <link rel="icon" href="favicon.png" type="image/png"> <!-- Favicon-->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css" />
