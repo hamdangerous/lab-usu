@@ -67,8 +67,8 @@ $sql_logbook = mysqli_query($con, $q_logbook);
                                                 <td>$d->ct_value</td>
                                                 <td>$d->keterangan</td>
                                                 <td>
-                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"edit('$d->id_logbook','m_indexlogbook')\"><i class=\"zmdi zmdi-edit\"></i></button>
-                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"hapus('$d->id_logbook','m_indexlogbook')\"><i class=\"zmdi zmdi-close-circle-o\"></i></button>
+                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"edit('$d->id_logbook','m_logbook')\"><i class=\"zmdi zmdi-edit\"></i></button>
+                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"hapus('$d->id_logbook','m_logbook')\"><i class=\"zmdi zmdi-close-circle-o\"></i></button>
                                                 </td>
                                             </tr>";
                                 }
@@ -214,7 +214,7 @@ $sql_logbook = mysqli_query($con, $q_logbook);
             $.ajax({
                 url: "modul/" + src + ".php",
                 data: fdata,
-                method: "POST",
+                method: "post",
                 contentType: false,
                 processData: false,
                 success: (data) => {
@@ -239,10 +239,10 @@ $sql_logbook = mysqli_query($con, $q_logbook);
         modal.find('.modal-header').text('Edit Data Logbook')
         $.ajax({
             url: "modul/" + src + ".php",
-            method: "POST",
+            method: "post",
             dataType: "json",
             data: {
-                aksi: "GET",
+                aksi: "get",
                 id: id
             },
             success: (data) => {
@@ -290,7 +290,7 @@ $sql_logbook = mysqli_query($con, $q_logbook);
                 if (willDelete) {
                     $.ajax({
                         url: "modul/" + src + ".php",
-                        method: "POST",
+                        method: "post",
                         data: {
                             aksi: "delete",
                             id: id
