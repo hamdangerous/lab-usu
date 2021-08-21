@@ -26,8 +26,7 @@ if ($aksi == 'input') {
     if (!$sql) {
         echo "a";
     }
-}
-    else if ($aksi == 'delete') {
+} else if ($aksi == 'delete') {
         $q = "DELETE FROM logbook WHERE id_logbook = '$d[id]'";
         $sql = mysqli_query($con, $q);
         echo $q;
@@ -50,7 +49,7 @@ if ($aksi == 'input') {
     }
 } else if ($aksi == 'update') {
         $q = "UPDATE logbook SET 
-        -- id_logbook = '$d[id_logbook]', 
+        -- id_logbook = '$d[id_logbook]',
         no_urut = '$d[no_urut]',
         nama = '$d[nama]',
         jk_umur = '$d[jk_umur]',
