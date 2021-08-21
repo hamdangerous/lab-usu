@@ -10,7 +10,7 @@ $aksi = $d['aksi'];
 $data = '';
 
 if ($aksi == 'input') {
-    $q = "INSERT INTO pasien (no,nama,umur,spesimen,sampel,diagnosa,profesi,tgl_ambil,tgl_kirim,rekam,nik,ket) values('$d[no]','$d[nama]','$d[umur]','$d[spesimen]','$d[sampel]','$d[diagnosa]','$d[profesi]','$d[tgl_ambil]','$d[tgl_kirim]','$d[rekam]','$d[nik]','$d[ket]')";
+    $q = "INSERT INTO pasien (no_urut,nama,umur,jenis_spesimen,sampel_ke,diagnosa_followuo,profesi,tgl_ambil_sampel,tgl_kirim_sampel,rekam,nik,keterangan) values('$d[no_urut]','$d[nama]','$d[umur]','$d[jenis_spesimen]','$d[sampel_ke]','$d[diagnosa_followuo]','$d[profesi]','$d[tgl_ambil_sampel]','$d[tgl_kirim_sampel]','$d[rekam]','$d[nik]','$d[keterangan]')";
     $sql = mysqli_query($con, $q);
     if ($sql) {
         $error = 0;
@@ -41,7 +41,7 @@ if ($aksi == 'input') {
         echo json_encode($json);
     }
 } else if ($aksi == 'update') {
-    $q = "UPDATE pasien SET id_pasien = '$d[id_pasien]', no = '$d[no]', nama = '$d[nama]', umur = '$d[umur]', spesimen = '$d[spesimen]', sampel = '$d[sampel]', diagnosa = '$d[diagnosa]', profesi = '$d[profesi]', tgl_ambil = '$d[tgl_ambil]', tgl_kirim = '$d[tgl_kirim]', rekam = '$d[rekam]', nik = '$d[nik]', ket = '$d[ket]' WHERE id_pasien = '$d[id]'";
+    $q = "UPDATE pasien SET id_pasien = '$d[id_pasien]', no_urut = '$d[no_urut]', nama = '$d[nama]', umur = '$d[umur]', jenis_spesimen = '$d[jenis_spesimen]', sampel_ke = '$d[sampel_ke]', diagnosa_followuo = '$d[diagnosa_followuo]', profesi = '$d[profesi]', tgl_ambil_sampel = '$d[tgl_ambil_sampel]', tgl_kirim_sampel = '$d[tgl_kirim_sampel]', rekam = '$d[rekam]', nik = '$d[nik]', keterangan = '$d[keterangan]' WHERE id_pasien = '$d[id]'";
     $sql = mysqli_query($con, $q);
     if ($sql) {
         $error = 0;

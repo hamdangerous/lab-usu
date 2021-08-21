@@ -2,7 +2,7 @@
 require_once 'config/koneksi.php';
 $q = "select * from pasien";
 $sql = mysqli_query($con, $q);
-$q_pasien = "SELECT no,nama,umur,spesimen,sampel,diagnosa,profesi,tgl_ambil,tgl_kirim,rekam,nik,ket FROM pasien";
+$q_pasien = "SELECT * FROM pasien";
 $sql_pasien = mysqli_query($con, $q_pasien);
 ?>
 <div class="container-fluid">
@@ -45,21 +45,21 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                 while ($d = mysqli_fetch_object($sql)) {
                                     echo "<tr>
 
-                                                <td>$d->no</td>
+                                                <td>$d->no_urut</td>
                                                 <td>$d->nama</td>
-                                                <td>$d->umur</td>
-                                                <td>$d->spesimen</td>
-                                                <td>$d->sampel</td>
-                                                <td>$d->diagnosa</td>
+                                                <td>$d->jk_umur</td>
+                                                <td>$d->jenis_spesimen</td>
+                                                <td>$d->sampel_ke</td>
+                                                <td>$d->diagnosa_followup</td>
                                                 <td>$d->profesi</td>
-                                                <td>$d->tgl_ambil</td>
-                                                <td>$d->tgl_kirim</td>
+                                                <td>$d->tgl_ambil_sampel</td>
+                                                <td>$d->tgl_kirim_sampel</td>
                                                 <td>$d->rekam</td>
                                                 <td>$d->nik</td>
-                                                <td>$d->ket</td>
+                                                <td>$d->keterangan</td>
                                                 <td>
-                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"edit('$d->id_pasien','pendaftaranpasien')\"><i class=\"zmdi zmdi-edit\"></i></button>
-                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"hapus('$d->id_pasien','pendaftaranpasien')\"><i class=\"zmdi zmdi-close-circle-o\"></i></button>
+                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"edit('$d->id_pasien','m_pasien')\"><i class=\"zmdi zmdi-edit\"></i></button>
+                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"hapus('$d->id_pasien','m_pasien')\"><i class=\"zmdi zmdi-close-circle-o\"></i></button>
                                                 </td>
                                             </tr>";
                                 }
@@ -75,7 +75,7 @@ $sql_pasien = mysqli_query($con, $q_pasien);
     <div class="modal fade" id="modal-form" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="form-submit" data-modul="pendaftaranpasien">
+                <form id="form-submit" data-modul="m_pasien">
                     <div class="modal-header">
                         <h4 class="title" id="defaultModalLabel"><?= $form ?></h4>
                     </div>
@@ -93,7 +93,7 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                                     <input type="number" class="form-control" placeholder="Id Pasien" name="id_pasien" readonly />
                                                 </div>      
                                                 <label for="no">No. Urut</label>                                    
-                                                    <input type="number" class="form-control" placeholder="No. Urut" name="no" required />
+                                                    <input type="number" class="form-control" placeholder="No. Urut" name="no_urut" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="nama">Nama Pasien</label>
@@ -101,19 +101,19 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="umur">Jenis Kelamin/Umur</label>
-                                                    <input type="text" class="form-control" placeholder="Jenis Kelamin/Umur" name="umur" required />
+                                                    <input type="text" class="form-control" placeholder="Jenis Kelamin/Umur" name="jk_umur" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="spesimen">Jenis Spesimen</label>
-                                                    <input type="text" class="form-control" placeholder="Jenis Spesimen" name="spesimen" required />
+                                                    <input type="text" class="form-control" placeholder="Jenis Spesimen" name="jenis_spesimen" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="sampel">Sampel Ke</label>
-                                                    <input type="number" class="form-control" placeholder="Sampel Ke" name="sampel" required />
+                                                    <input type="number" class="form-control" placeholder="Sampel Ke" name="sampel_ke" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="diagnosa">Diagnosa</label>
-                                                    <input type="text-area" class="form-control" placeholder="Diagnosa" name="diagnosa" required />
+                                                    <input type="text-area" class="form-control" placeholder="Diagnosa" name="diagnosa_followup" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="profesi">Profesi</label>
@@ -121,11 +121,11 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="tgl_ambil">Tgl Ambil Sampel</label>
-                                                    <input type="date" class="form-control" placeholder="Tgl Ambil Sampel" name="tgl_ambil" required />
+                                                    <input type="date" class="form-control" placeholder="Tgl Ambil Sampel" name="tgl_ambil_sampel" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="tgl_kirim">Tgl Kirim Sampel</label>
-                                                    <input type="date" class="form-control" placeholder="Tgl Kirim Sampel" name="tgl_kirim" required />
+                                                    <input type="date" class="form-control" placeholder="Tgl Kirim Sampel" name="tgl_kirim_sampel" required />
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="rekam">No. Rekam Medis</label>
@@ -137,7 +137,7 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                                                 </div>
                                                 <div class="form-group">
                                                 <label for="ket">Ket./Riwatar Kontak Erat</label>
-                                                    <textarea class="form-control" placeholder="Ket./Riwatar Kontak Erat" name="ket" required></textarea>
+                                                    <textarea class="form-control" placeholder="Ket./Riwatar Kontak Erat" name="keterangan" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -235,18 +235,18 @@ $sql_pasien = mysqli_query($con, $q_pasien);
                 if (data.error == 0) {
                     var data = data.data;
                     // modal.find('[name="id_pasien"]').val(data.id_pasien);
-                    modal.find('[name="no"]').val(data.no);
+                    modal.find('[name="no"]').val(data.no_urut);
                     modal.find('[name="nama"]').val(data.nama);
-                    modal.find('[name="umur"]').val(data.umur);
-                    modal.find('[name="spesimen"]').val(data.spesimen);
-                    modal.find('[name="sampel"]').val(data.sampel);
-                    modal.find('[name="diagnosa"]').val(data.diagnosa);
+                    modal.find('[name="umur"]').val(data.jk_umur);
+                    modal.find('[name="spesimen"]').val(data.jenis_spesimen);
+                    modal.find('[name="sampel"]').val(data.sampel_ke);
+                    modal.find('[name="diagnosa"]').val(data.diagnosa_followup);
                     modal.find('[name="profesi"]').val(data.profesi);
-                    modal.find('[name="tgl_ambil"]').val(data.tgl_ambil);
-                    modal.find('[name="tgl_kirim"]').val(data.tgl_kirim);
+                    modal.find('[name="tgl_ambil"]').val(data.tgl_ambil_sampel);
+                    modal.find('[name="tgl_kirim"]').val(data.tgl_kirim_sampel);
                     modal.find('[name="rekam"]').val(data.rekam);
                     modal.find('[name="nik"]').val(data.nik);
-                    modal.find('[name="ket"]').val(data.ket);
+                    modal.find('[name="ket"]').val(data.keterangan);
                     modal.find('[name="id"]').val(data.id_pasien);
 
                 }

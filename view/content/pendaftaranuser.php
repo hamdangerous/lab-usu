@@ -1,9 +1,9 @@
 <?php
 require_once 'config/koneksi.php';
-$q = "select * from pegawai";
+$q = "select * from user";
 $sql = mysqli_query($con, $q);
-$q_pegawai = "SELECT id_pegawai,username,password,nama,no_hp,alamat FROM pegawai";
-$sql_pegawai = mysqli_query($con, $q_pegawai);
+$q_user = "SELECT * FROM user";
+$sql_user = mysqli_query($con, $q_user);
 ?>
 <div class="container-fluid">
 
@@ -12,11 +12,11 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
         <div class="col-lg-12">
             <div class="card">
                 <div class="header">
-                    <h2><strong>Daftar</strong> Pegawai </h2>
+                    <h2><strong>Daftar</strong> user </h2>
                     <ul class="header-dropdown">
                         <li>
                             <button type="button" class="btn btn-primary waves-effect btn-sm" id="btn-tambah">Tambah
-                                Pegawai</button>
+                                user</button>
                         </li>
                     </ul>
                 </div>
@@ -25,7 +25,7 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
                         <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                             <thead>
                                 <tr>
-                                    <th>Id Pegawai</th>
+                                    <th>Id user</th>
                                     <th>Username</th>
                                     <th>Password</th>
                                     <th>Nama</th>
@@ -38,15 +38,15 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
                                 <?php
                                 while ($d = mysqli_fetch_object($sql)) {
                                     echo "<tr>
-                                                <td>$d->id_pegawai</td>
+                                                <td>$d->id_user</td>
                                                 <td>$d->username</td>
                                                 <td>$d->password</td>
                                                 <td>$d->nama</td>
                                                 <td>$d->no_hp</td>
                                                 <td>$d->alamat</td>
                                                 <td>
-                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"edit('$d->id_pegawai','pendaftaranpegawai')\"><i class=\"zmdi zmdi-edit\"></i></button>
-                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"hapus('$d->id_pegawai','pendaftaranpegawai')\"><i class=\"zmdi zmdi-close-circle-o\"></i></button>
+                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"edit('$d->id_user','pendaftaranuser')\"><i class=\"zmdi zmdi-edit\"></i></button>
+                                                    <button class=\"btn btn-primary btn-sm btn-icon\"  onclick=\"hapus('$d->id_user','pendaftaranuser')\"><i class=\"zmdi zmdi-close-circle-o\"></i></button>
                                                 </td>
                                             </tr>";
                                 }
@@ -62,7 +62,7 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
     <div class="modal fade" id="modal-form" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-                <form id="form-submit" data-modul="pendaftaranpegawai">
+                <form id="form-submit" data-modul="pendaftaranuser">
                     <div class="modal-header">
                         <h4 class="title" id="defaultModalLabel"><?= $form ?></h4>
                     </div>
@@ -76,7 +76,7 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
                                             <div class="col-sm-12">
                                                 <div class="form-group">
                                                     <input type="hidden" name="id">
-                                                    <input type="number" class="form-control" placeholder="Id Pegawai" name="id_pegawai" required />
+                                                    <input type="number" class="form-control" placeholder="Id user" name="id_user" required />
                                                 </div>
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" placeholder="Username" name="username" required />
@@ -126,11 +126,11 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
 <script src="assets/plugins/sweetalert/sweetalert.min.js"></script> <!-- SweetAlert Plugin Js -->
 <script>
     $(document).ready((e) => {
-        $('#tbl-pegawai').DataTable();
+        $('#tbl-user').DataTable();
 
         $('#btn-tambah').click((e) => {
             var modal = $('#modal-form')
-            modal.find('.modal-header').text('Tambah Data Pegawai')
+            modal.find('.modal-header').text('Tambah Data user')
             modal.find('input').val('');
             modal.modal('show');
         })
@@ -175,7 +175,7 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
 
     function edit(id, src) {
         var modal = $('#modal-form')
-        modal.find('.modal-header').text('Edit Data Pegawai')
+        modal.find('.modal-header').text('Edit Data user')
         $.ajax({
             url: "modul/" + src + ".php",
             method: "post",
@@ -188,13 +188,13 @@ $sql_pegawai = mysqli_query($con, $q_pegawai);
                 console.log(data.data)
                 if (data.error == 0) {
                     var data = data.data;
-                    modal.find('[name="id_pegawai"]').val(data.id_pegawai);
+                    modal.find('[name="id_user"]').val(data.id_user);
                     modal.find('[name="username"]').val(data.username);
                     modal.find('[name="password"]').val(data.password);
                     modal.find('[name="nama"]').val(data.nama);
                     modal.find('[name="no_hp"]').val(data.no_hp);
                     modal.find('[name="alamat"]').val(data.alamat);
-                    modal.find('[name="id"]').val(data.id_pegawai);
+                    modal.find('[name="id"]').val(data.id_user);
                 }
             }
 

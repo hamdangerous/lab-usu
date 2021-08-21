@@ -10,7 +10,7 @@ $aksi = $d['aksi'];
 $data = '';
 
 if ($aksi == 'input') {
-    $q = "INSERT INTO pegawai (id_pegawai,username,password,nama,no_hp,alamat) values('$d[id_pegawai]','$d[username]','$d[password]','$d[nama]','$d[no_hp]','$d[alamat]')";
+    $q = "INSERT INTO user (id_user,username,password,nama,no_hp,alamat) values('$d[id_user]','$d[username]','$d[password]','$d[nama]','$d[no_hp]','$d[alamat]')";
     $sql = mysqli_query($con, $q);
     if ($sql) {
         $error = 0;
@@ -20,7 +20,7 @@ if ($aksi == 'input') {
     $json = array("error" => $error);
     echo json_encode($json);
 } else if ($aksi == 'delete') {
-    $q = "DELETE FROM pegawai WHERE id_pegawai = '$d[id]'";
+    $q = "DELETE FROM user WHERE id_user = '$d[id]'";
     $sql = mysqli_query($con, $q);
     echo $q;
     if (!$sql) {
@@ -28,7 +28,7 @@ if ($aksi == 'input') {
     }
 } else if ($aksi == 'get') {
     if ($d[id]) {
-        $q = "SELECT * FROM pegawai WHERE id_pegawai = '$d[id]'";
+        $q = "SELECT * FROM user WHERE id_user = '$d[id]'";
         $sql = mysqli_query($con, $q);
         if ($sql) {
             $data = mysqli_fetch_object($sql);
@@ -41,7 +41,7 @@ if ($aksi == 'input') {
         echo json_encode($json);
     }
 } else if ($aksi == 'update') {
-    $q = "UPDATE pegawai SET id_pegawai = '$d[id_pegawai]', username = '$d[username]', password = '$d[password]', nama = '$d[nama]', no_hp = '$d[no_hp]', alamat = '$d[alamat]' WHERE id_pegawai = '$d[id]'";
+    $q = "UPDATE user SET id_user = '$d[id_user]', username = '$d[username]', password = '$d[password]', nama = '$d[nama]', no_hp = '$d[no_hp]', alamat = '$d[alamat]' WHERE id_user = '$d[id]'";
     $sql = mysqli_query($con, $q);
     if ($sql) {
         $error = 0;

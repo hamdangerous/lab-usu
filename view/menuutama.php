@@ -37,7 +37,7 @@
                         Lab</span></a>
                 <ul class="ml-menu">
                     <li><a href="?page=pendaftaran&form=pasien">Data Pasien</a></li>
-                    <li><a href="?page=pendaftaran&form=faskes">Data Faskes</a></li>
+                    <!-- <li><a href="?page=pendaftaran&form=faskes">Data Faskes</a></li> -->
                     <li><a href="?page=pendaftaran&form=wali">Data Ekstraksi</a></li>
                     <li><a href="?page=pendaftaran&form=spp">Data Preparasi</a></li>
                 </ul>
@@ -54,11 +54,11 @@
                     <li><a href="?page=pendaftaran&form=faskesupload">Data Faskes Upload</a></li>
                 </ul>
             </li>
-            <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
+            <!-- <li> <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account"></i><span>Admin</span></a>
                 <ul class="ml-menu">
                     <li><a href="?page=pendaftaran&form=admin">Data Admin</a></li>
                 </ul>
-            </li>
+            </li> -->
 
             <?php
             } else { ?>

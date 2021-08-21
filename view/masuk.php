@@ -5,7 +5,7 @@
                 <form class="card auth_form" id="login-form" method="POST">
                     <div class="header">
                         <img class="logo" src="images/laboratory.png" alt="">
-                        <h4>Login Pegawai</h4>
+                        <h4>Login</h4>
                     </div>
                     <div class="body">
                         <div class="input-group mb-3">

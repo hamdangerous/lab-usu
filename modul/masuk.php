@@ -6,7 +6,7 @@ $d = $_POST;
 $u = $d['username'];
 $p = $d['password'];
 
-$q = "SELECT * FROM pegawai WHERE username = '" . $u . "' and password = ('" . $p . "')";
+$q = "SELECT * FROM user WHERE username = '" . $u . "' and password = ('" . $p . "')";
 $sql = mysqli_query($con, $q);
 $data = mysqli_fetch_object($sql);
 $ldata = mysqli_num_rows($sql); 
